@@ -29,10 +29,10 @@ def add_book():
 
     print(f"Book '{title}' added successfully.")
 
-def edit_existing_book(): #vincent
+def edit_existing_book(): 
     pass
 
-def delete_book():
+def delete_book(): #vincent
     pass
 
 def list_all_books():
