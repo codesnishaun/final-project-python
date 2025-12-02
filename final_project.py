@@ -36,6 +36,11 @@ def delete_book(): #vincent
     pass
 
 def list_all_books(): #chelzy
-    pass
+    print("\n--- List All Books ---")
+    if not books:
+        print("No books in the system.")
+        return
+    for isbn, book in books.items():
+        print(f"ISBN: {isbn}, Title: {book['title']}, Author: {book['author']}, Status: {book['status']}")
 
 main()
