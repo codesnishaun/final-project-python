@@ -1,4 +1,7 @@
-books = {}
+def main():
+    pass
+
+books = {} #empty dict
 
 def add_book():
     print("\n--- Add a Book ---")
@@ -26,5 +29,13 @@ def add_book():
 
     print(f"Book '{title}' added successfully.")
 
+def edit_existing_book():
+    pass
 
-add_book() 
+def delete_book():
+    pass
+
+def list_all_books():
+    pass
+
+main()
