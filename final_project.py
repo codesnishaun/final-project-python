@@ -54,7 +54,34 @@ def add_book():
     print(f"Book '{title}' added successfully.")
 
 def edit_existing_book(): #liezel
-    pass
+    print("\n--- Edit Book Status ---")
+    isbn = input("Enter ISBN of the book to edit: ").strip()
+
+    if isbn not in books:
+        print("Error: Book not found.")
+        return
+
+    book = books[isbn]
+    print(f"Current Status of '{book['title']}': {book['status']}")
+
+    confirm = input("Are you sure you want to edit this book? (Y/N): ").strip().upper()
+    if confirm != "Y":
+        print("Edit canceled.")
+        return
+
+    new_status = input("Enter new status (Available/Borrowed): ").strip().title()
+
+    if new_status == book["status"]:
+        print(f"{book["title"]} is already {new_status}")
+        return
+
+    if new_status != "Available" and new_status != "Borrowed":
+        print("Error: Status must be 'Available' or 'Borrowed'.")
+        return
+
+    book["status"] = new_status
+    print(f"The {book["title"]} is currently {book["status"]}")
+
 
 def delete_book(): #vincent
     print("\n--- Delete a Book ---")
@@ -77,8 +104,9 @@ def list_all_books(): #chelzy
     if not books:
         print("No books in the system.")
         return
+    print("----------------------")
     for isbn, book in books.items():
-        print(f"ISBN: {isbn}, Title: {book['title']}, Author: {book['author']}, Status: {book['status']}")
-
+        print(f"ISBN: {isbn}\nTitle: {book['title']}\nAuthor: {book['author']}\nStatus: {book['status']}")
+        print("----------------------")
 
 main()
